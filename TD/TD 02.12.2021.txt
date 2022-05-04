@@ -1,0 +1,79 @@
+fonction exemplaire_multiple (c:une_collection):entier
+Var i,a: entier
+debut
+    a:=0
+    pour i allant de 1 à Max faire
+        Si c[i] > 1 faire
+            a = a + 1
+        Fsi
+    Fpour
+    retourner (a)
+Fin
+
+fonction collection_complete(c: une_collection) : booleen
+Var i: entier
+    complet:booleen
+debut
+    i:=1
+    complet:=Vrai
+    tant que i<136 et complet faire
+        Si c[i]<1 alors
+            complet := Faux
+        Sinon
+            i := i+1
+        Fsi
+    Ftant
+    Retourner (complet)
+Fin
+
+
+fonction collection_complete(c : une_collection,i:entier) : booleen
+
+debut
+    Si i=Max+1 alors
+        Retourner (Vrai)
+    Sinon
+        Si c[i]=0 alors
+            retourner (Faux)
+        Sinon
+            retourner (collection_complete(c,i+1))
+    Fsi
+
+Fin
+
+
+
+fonction recherche_carte (carte : caractère, collector:les_carte) : entier
+
+    Var i:entier 
+
+    Début
+    i:=0
+
+        tant que < Max+1 faire
+            si collector[i].nom_carte = carte alors
+                    f := vrai
+            Sinon
+                f:= faux
+            
+        ftq
+
+
+
+
+
+
+
+fonction recherche_carte_recursif (carte : caractère, collector:les_carte, i:entier ) : entier
+
+    debut
+        Si i > Max alors
+            Retourner (-1)
+        Sinon
+            Si collector[i].nom_carte = carte alors
+                Retourner (i)
+            Sinon
+                retourner (recherche_carte(carte,collector,i+1))
+            Fsi
+        Fsi
+    Fin
